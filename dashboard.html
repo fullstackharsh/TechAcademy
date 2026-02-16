@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Dashboard</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f6f8;
+            padding: 30px;
+        }
+
+        .box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 500px;
+            margin: auto;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #ef4444;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+        <a href="index.html">Dashboard</a>
+        <a href="courses.html">Courses</a>
+        <a href="login.html">Login</a>
+        <a href="register.html">Register</a>
+        <a href="notification.html">Notification</a>
+    </nav>
+    </header>
+
+<div class="box">
+    <h2 id="welcome"></h2>
+    <p>Welcome to your TechAcademy dashboard 📚</p>
+
+    <button onclick="logout()">Logout</button>
+</div>
+
+<script>
+let email = localStorage.getItem("loggedInUser");
+
+if (!email) {
+    window.location.href = "index1.html";
+}
+
+let user = JSON.parse(localStorage.getItem(email));
+document.getElementById("welcome").innerText = "Hello, " + user.name;
+
+function logout() {
+    localStorage.removeItem("loggedInUser");
+    window.location.href = "index1.html";
+}
+</script>
+
+</body>
+</html>
